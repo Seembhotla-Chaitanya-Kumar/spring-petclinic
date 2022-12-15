@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: spring-repica-set
+  labels:
+    type: frontend
+    env: dev
+
+spec:
+  template: 
+    metadata: 
+      name: spring-pet-clinic
+      labels: 
+        type: frontend
+
+    spec: 
+      containers:
+      -
+        name: spring-pet-clinic
+        image: spring-pet-clinic:latest
+        imagePullPolicy: Never
+  
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend

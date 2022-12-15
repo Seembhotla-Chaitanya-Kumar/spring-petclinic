@@ -13,7 +13,8 @@ services:
       - db-data:/var/lib/postgresql/data
 
   spring-petclinic:
-    image: test_spring:latest
+    image: spring-pet-clinic:latest
+    build: .
     ports:
       - "8080:8080"
 

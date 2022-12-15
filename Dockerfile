@@ -8,7 +8,7 @@ RUN mkdir /app
 
 WORKDIR /app 
 
-COPY spring-petclinic /app/spring-petclinic
+COPY ../spring-petclinic /app/spring-petclinic
 
 WORKDIR /app/spring-petclinic/
 
@@ -20,5 +20,9 @@ ENV PATH $PATH:$JAVA_HOME/bin
 
 RUN cp /app/spring-petclinic/target/*.jar spring-petclinic.jar
 
+#ENTRYPOINT ["./mvnw", "spring-boot:run"]
+
+
 ENTRYPOINT ["./mvnw", "spring-boot:run" , "-Dspring-boot.run.profiles=postgres"]
+
 

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+spec:
+  selector:
+    matchLabels:
+      type: spring-frontend
+      env: dev
+
+  replicas: 3
+  template:
+    metadata:
+      name: spring-pod
+      labels:
+        type: spring-frontend
+        env: dev
+    spec: 
+      containers:
+        -
+          name: spring-container
+          image: spring-pet-clinic:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
