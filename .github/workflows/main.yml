@@ -1,0 +1,16 @@
+name: My first workflow 
+
+on: push
+
+jobs:
+  first-job:
+    runs-on: ububtu
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: List files
+      run: ls -la
+
+    - name: test build
+      run: echo "Hello world !!"
